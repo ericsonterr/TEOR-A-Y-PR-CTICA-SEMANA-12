@@ -17,12 +17,14 @@ SELECT
     CONVERT(VARCHAR(10), e.HireDate, 103) AS FechaFormateada
 FROM HumanResources.Employee AS e
 INNER JOIN Person.Person AS p ON e.BusinessEntityID = p.BusinessEntityID
-WHERE e.BusinessEntityID IN (
+WHERE e.BusinessEntityID IN 
+(
     SELECT BusinessEntityID 
     FROM HumanResources.Employee 
     WHERE YEAR(HireDate) < 2015
 )
-AND EXISTS (
+AND EXISTS 
+(
     SELECT 1 
     FROM HumanResources.EmployeePayHistory AS ph 
     WHERE ph.BusinessEntityID = e.BusinessEntityID
