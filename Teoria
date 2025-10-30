@@ -1,54 +1,52 @@
 Subconsultas
 
-1. ¿Qué es una subconsulta?
+¿Qué es una subconsulta?
 Es una consulta dentro de otra, sirve para usar los resultados de una como condición o filtro en la principal.
 
-2. ¿Para qué sirve el IN en una subconsulta?
+¿Para qué sirve el IN en una subconsulta?
 Para comparar si un valor está dentro de una lista que devuelve otra consulta.
 Por ejemplo, mostrar empleados cuyo ID esté en una lista de contratados antes del 2015.
 
-3. ¿Y el EXISTS para qué sirve?
+¿Para que sirve el EXIST?
 Sirve para saber si existen registros que cumplan una condición.
 Si hay al menos uno, devuelve verdadero y se muestra el resultado.
 
 
 Funciones de Fecha
 
-4. ¿Qué hace DAY(), MONTH() y YEAR()?
+¿Qué hace DAY(), MONTH() y YEAR()?
 Sacan el día, mes o año de una fecha, cada uno por separado.
 
-5. ¿Para qué se usa GETDATE()?
+¿Para qué se usa GETDATE()?
 Para obtener la fecha y hora actual del sistema.
 
-6. ¿Qué hace DATEDIFF()?
+¿Qué hace DATEDIFF()?
 Calcula la diferencia entre dos fechas, por ejemplo, cuántos años han pasado desde una fecha.
 
-7. ¿Y DATEADD() qué hace?
+¿Que hace DATEADD()?
 Sirve para sumar o restar tiempo a una fecha, como agregar años, meses o días.
 
 
 Funciones de Cadena
 
-8. ¿Qué hace CONCAT()?
+¿Qué hace CONCAT()?
 Une textos o columnas en una sola cadena.
 
-9. ¿Qué hace LEN()?
+¿Qué hace LEN()?
 Cuenta cuántos caracteres tiene un texto.
 
-10. ¿Y SUBSTRING()?
+¿Que hace SUBSTRING()?
 Extrae una parte del texto, por ejemplo, las tres primeras letras.
 
-11. ¿Para qué sirven LOWER() y UPPER()?
+¿Para qué sirven LOWER() y UPPER()?
 LOWER pone el texto en minúsculas, UPPER en mayúsculas.
 
-12. ¿Qué hacen LTRIM() y RTRIM()?
+¿Qué hacen LTRIM() y RTRIM()?
 Quita los espacios que sobran al inicio o al final de un texto.
 
 
 Funciones de Conversión
 
-13. ¿Para qué sirve CAST()?
+¿Para qué sirve CAST()?
 Convierte un dato de un tipo a otro, como de número a texto o de texto a número.
 
-14. ¿Y CONVERT() en qué se diferencia?
-Hace lo mismo que CAST, pero también deja cambiar el formato, por ejemplo, el formato de una fecha.
