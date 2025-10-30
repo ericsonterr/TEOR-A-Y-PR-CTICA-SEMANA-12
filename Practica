@@ -1,0 +1,29 @@
+https://drive.google.com/drive/folders/1z2CIxdiUzasOZwX0ojJPVYZ9pVNErnXj?usp=drive_link 
+
+SELECT 
+    CONCAT(p.FirstName, ' ', p.LastName) AS NombreCompleto,
+    e.HireDate AS FechaContratacion,
+    YEAR(e.HireDate) AS AñoContratacion,
+    MONTH(e.HireDate) AS MesContratacion,
+    DAY(e.HireDate) AS DiaContratacion,
+    DATEDIFF(YEAR, e.HireDate, GETDATE()) AS AñosTrabajando,
+    DATEADD(YEAR, 5, e.HireDate) AS FechaProxEvaluacion,
+    LEN(p.FirstName) AS LargoDelNombre,
+    SUBSTRING(p.LastName, 1, 3) AS TresPrimerasLetrasApellido,
+    LOWER(p.FirstName) AS NombreMinuscula,
+    UPPER(p.LastName) AS ApellidoMayuscula,
+    LTRIM(RTRIM(CONCAT(p.FirstName, ' ', p.LastName))) AS NombreSinEspacios,
+    CAST(DATEDIFF(YEAR, e.HireDate, GETDATE()) AS VARCHAR(5)) + ' años' AS TiempoTexto,
+    CONVERT(VARCHAR(10), e.HireDate, 103) AS FechaFormateada
+FROM HumanResources.Employee AS e
+INNER JOIN Person.Person AS p ON e.BusinessEntityID = p.BusinessEntityID
+WHERE e.BusinessEntityID IN (
+    SELECT BusinessEntityID 
+    FROM HumanResources.Employee 
+    WHERE YEAR(HireDate) < 2015
+)
+AND EXISTS (
+    SELECT 1 
+    FROM HumanResources.EmployeePayHistory AS ph 
+    WHERE ph.BusinessEntityID = e.BusinessEntityID
+); 
